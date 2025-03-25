@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Company Search</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <!-- <h1>Search Company Details</h1>  -->
+        <div style="text-align: center; margin-top: 20px;">
+            <h1>Search Company Details</h1>
+        </div>
+
+        <form method="POST" class="search-form">
+            <!--
+            <div class="mb-3">
+                <select name="Company_Status" class="custom-select form-select">
+                    <option value="" selected>Select Company Status</option>
+                    {% for status in company_statuses %}
+                    <option value="{{ status }}">{{ status }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+        -->
+            <div class="mb-3">
+                <label>Select Company Status</label><br>
+            
+                <!-- Scrollable Checkbox List -->
+                <div style="max-height: 150px; overflow-y: auto; border: 1px solid #ccc; padding: 10px; border-radius: 5px; padding-left: 10px;">
+            
+                    <!-- "Select All" Checkbox -->
+                    <div class="form-check">
+                        <input type="checkbox" id="select_all_status" class="form-check-input" onclick="toggleSelectAllStatus(this)">
+                        <label class="form-check-label" for="select_all_status"><strong>Select All</strong></label>
+                    </div>
+            
+                    <!-- Individual Status Checkboxes -->
+                    {% for status in company_statuses %}
+                    <div class="form-check">
+                        <input type="checkbox" name="Company_Status" value="{{ status }}" id="status_{{ loop.index }}" class="form-check-input">
+                        <label class="form-check-label" for="status_{{ loop.index }}">{{ status }}</label>
+                    </div>
+                    {% endfor %}
+            
+                </div>
+            </div>
+            
+            <script>
+                function toggleSelectAllStatus(source) {
+                    var checkboxes = document.querySelectorAll('input[name="Company_Status"]');
+                    checkboxes.forEach(checkbox => checkbox.checked = source.checked);
+                }
+            </script>
+        
+            
+        <!--
+            <div class="mb-3">
+                <select name="location" class="custom-select form-select">
+                    <option value="" selected>Select State</option>
+                    {% for location in locations %}
+                    <option value="{{ location }}">{{ location }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+        -->
+            <div class="mb-3">
+                <label>Select State</label><br>
+            
+                <!-- Scrollable Checkbox List -->
+                <div style="max-height: 150px; overflow-y: auto; border: 1px solid #ccc; padding: 10px; border-radius: 5px; padding-left: 10px;">
+            
+                    <!-- "Select All" Checkbox -->
+                    <div class="form-check">
+                        <input type="checkbox" id="select_all_states" class="form-check-input" onclick="toggleSelectAllStates(this)">
+                        <label class="form-check-label" for="select_all_states"><strong>Select All</strong></label>
+                    </div>
+            
+                    <!-- Individual State Checkboxes -->
+                    {% for location in locations %}
+                    <div class="form-check">
+                        <input type="checkbox" name="location" value="{{ location }}" id="location_{{ loop.index }}" class="form-check-input">
+                        <label class="form-check-label" for="location_{{ loop.index }}">{{ location }}</label>
+                    </div>
+                    {% endfor %}
+            
+                </div>
+            </div>
+            
+            <script>
+                function toggleSelectAllStates(source) {
+                    var checkboxes = document.querySelectorAll('input[name="location"]');
+                    checkboxes.forEach(checkbox => checkbox.checked = source.checked);
+                }
+            </script>
+
+            <!--
+            <div class="mb-3">
+                <select name="ROC" class="custom-select form-select">
+                    <option value="" selected>Select ROC</option>
+                    {% for roc in rocs %}
+                    <option value="{{ roc }}">{{ roc }}</option>
+                    {% endfor %}
+                </select>
+            </div> 
+        -->
+            <div class="mb-3">
+                <label>Select ROC</label><br>
+            
+                <!-- Scrollable Checkbox List -->
+                <div style="max-height: 150px; overflow-y: auto; border: 1px solid #ccc; padding: 10px; border-radius: 5px; padding-left: 10px;">
+            
+                    <!-- "Select All" Checkbox -->
+                    <div class="form-check">
+                        <input type="checkbox" id="select_all_roc" class="form-check-input" onclick="toggleSelectAllROC(this)">
+                        <label class="form-check-label" for="select_all_roc"><strong>Select All</strong></label>
+                    </div>
+            
+                    <!-- Individual ROC Checkboxes -->
+                    {% for roc in rocs %}
+                    <div class="form-check">
+                        <input type="checkbox" name="ROC" value="{{ roc }}" id="roc_{{ loop.index }}" class="form-check-input">
+                        <label class="form-check-label" for="roc_{{ loop.index }}">{{ roc }}</label>
+                    </div>
+                    {% endfor %}
+            
+                </div>
+            </div>
+            
+            <script>
+                function toggleSelectAllROC(source) {
+                    var checkboxes = document.querySelectorAll('input[name="ROC"]');
+                    checkboxes.forEach(checkbox => checkbox.checked = source.checked);
+                }
+            </script>
+        
+            <!--
+            <div class="mb-3">
+                <label for="month_dropdown">Select Months</label>
+                <select name="Month" class="custom-select form-select" multiple id="month_dropdown">
+                    {% for month in months %}
+                    <option value="{{ month }}">{{ month }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+        -->
+         
+            <!--
+            <div class="mb-3">
+                <label>Select Month</label><br>
+                
+                
+                <button type="button" class="btn btn-sm btn-primary mb-2" onclick="toggleSelectAll()">Select All</button>
+            
+                
+                <div style="max-height: 200px; overflow-y: auto; border: 1px solid #ccc; padding: 10px; border-radius: 5px;">
+                    {% for month in months %}
+                    <div class="form-check">
+                        <input type="checkbox" name="Month" value="{{ month }}" id="month_{{ loop.index }}" class="form-check-input">
+                        <label class="form-check-label" for="month_{{ loop.index }}">{{ month }}</label>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            
+            <script>
+                function toggleSelectAll() {
+                    var checkboxes = document.querySelectorAll('input[name="Month"]');
+                    var allChecked = Array.from(checkboxes).every(checkbox => checkbox.checked);
+                    
+                    checkboxes.forEach(checkbox => {
+                        checkbox.checked = !allChecked;  // Toggle all checkboxes
+                    });
+                }
+            </script>
+        -->
+
+            <div class="mb-3">
+                <label>Select Months</label><br>
+            
+                <!-- Scrollable Checkbox List -->
+                <div style="max-height: 150px; overflow-y: auto; border: 1px solid #ccc; padding: 10px; border-radius: 5px; padding-left: 10px;">
+            
+                    <!-- "Select All" Checkbox -->
+                    <div class="form-check">
+                        <input type="checkbox" id="select_all" class="form-check-input" onclick="toggleSelectAll(this)">
+                        <label class="form-check-label" for="select_all"><strong>Select All</strong></label>
+                    </div>
+            
+                    <!-- Individual Month Checkboxes -->
+                    {% for month in months %}
+                    <div class="form-check">
+                        <input type="checkbox" name="Month" value="{{ month }}" id="month_{{ loop.index }}" class="form-check-input">
+                        <label class="form-check-label" for="month_{{ loop.index }}">{{ month }}</label>
+                    </div>
+                    {% endfor %}
+            
+                </div>
+            </div>
+            
+            <script>
+                function toggleSelectAll(source) {
+                    var checkboxes = document.querySelectorAll('input[name="Month"]');
+                    checkboxes.forEach(checkbox => checkbox.checked = source.checked);
+                }
+            </script>
+        
+            <button type="submit" class="btn btn-primary">Search</button>
+        </form>
+
+        {% if company_details %}
+        <div class="result">
+            <h2>Company Details</h2>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>CIN</th>
+                        <th>Company Name</th>
+                        <th>Date Of Registration</th>
+                        <th>Month</th>
+                        <th>State</th>
+                        <th>ROC</th>
+                        <th>Company Status</th>
+                        <th>Category</th>
+                        <th>Class</th>
+                        <th>Company Type</th>
+                        <th>Authorized Capital</th>
+                        <th>PAIDUP Capital</th>
+                        <th>Activity Code</th>
+                        <th>Activity Description</th>
+                        <th>Registered Office Address</th>
+                        <th>Email</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for company in company_details %}
+                    <tr>
+                        <td>{{ company['CIN'] }}</td>
+                        <td>{{ company['Company Name'] }}</td>
+                        <td>{{ company['Date Of Registration'] }}</td>
+                        <td>{{ company['Month'] }}</td>
+                        <td>{{ company['State'] }}</td>
+                        <td>{{ company['ROC'] }}</td>
+                        <td>{{ company['Company Status'] }}</td>
+                        <td>{{ company['Category'] }}</td>
+                        <td>{{ company['Class'] }}</td>
+                        <td>{{ company['Company Type'] }}</td>
+                        <td>{{ company['Authorized Capital'] }}</td>
+                        <td>{{ company['PAIDUP Capital'] }}</td>
+                        <td>{{ company['Activity Code'] }}</td>
+                        <td>{{ company['Activity Description'] }}</td>
+                        <td>{{ company['Registered Office Address'] }}</td>
+                        <td>{{ company['Email'] }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {% elif not_found %}
+        <p class="not-found">No companies found for the given criteria. Please try again.</p>
+        {% endif %}
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
