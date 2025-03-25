@@ -1,0 +1,88 @@
+/* Custom CSS */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    text-align: center;
+    margin: 50px;
+}
+
+.container {
+    background: white;
+    padding: 50px;
+    border-radius: 30px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    margin: auto;
+}
+
+h1 {
+    color: #333;
+}
+
+form {
+    margin: 20px 0;
+}
+
+.custom-select,
+select {
+    font-size: 16px; /* Increase font size */
+    padding: 10px; /* Add padding to make it bigger */
+    height: 40px; /* Adjust height */
+    width: 100%; /* Adjust width if necessary */
+    border: 1px solid #ccc; /* Optional, adds a border */
+    border-radius: 5px; /* Optional, adds rounded corners */
+}
+
+input {
+    padding: 10px;
+    width: 70%;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    padding: 10px 15px;
+    font-size: 16px;
+    color: white;
+    background-color: #007BFF;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.result {
+    margin-top: 20px;
+    padding: 15px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+.result h2 {
+    color: #007BFF;
+}
+
+.result p {
+    font-size: 18px;
+    margin: 8px 0;
+}
+
+.not-found {
+    color: red;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.center-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full page height */
+}
